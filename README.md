@@ -1,16 +1,14 @@
 # list_sample
 
-A new Flutter project.
+列表组件使用示例.
 
-## Getting Started
+## 效果图
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![网格列表](assets/1.png)
+![一般列表](assets/2.png)
+![固定高度](assets/3.png)
+![多列表组合](assets/4.png)
+![固定头部](assets/5.png)
+![滚动监听](assets/6.png)
+![列表项重排序](assets/7.png)
+![瀑布流](assets/8.png)

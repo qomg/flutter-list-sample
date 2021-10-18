@@ -9,7 +9,7 @@ class DemoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const Key centerKey = ValueKey<String>('bottom-sliver-list');
+    // const Key centerKey = ValueKey<String>('bottom-sliver-list');
     return MyPage(
       title: "多列表",
       builder: (context) => WordList(

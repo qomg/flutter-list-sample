@@ -12,6 +12,7 @@ Widget newButton({
     focusElevation: 0,
     disabledElevation: 0,
     highlightElevation: 0,
+    height: 50,
     child: Text(text),
     onPressed: () {
       Navigator.of(context).push(MaterialPageRoute(builder: builder));

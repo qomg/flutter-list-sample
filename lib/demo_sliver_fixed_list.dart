@@ -13,6 +13,7 @@ class DemoList extends StatelessWidget {
       builder: (context) => WordList(
         builder: (context, data) => CustomScrollView(
           slivers: [
+            // FIXME 第一行高度有问题
             SliverFixedExtentList(
               itemExtent: 100,
               delegate: SliverChildBuilderDelegate(

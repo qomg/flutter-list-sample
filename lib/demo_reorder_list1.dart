@@ -10,31 +10,18 @@ class DemoList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyPage(
-      title: "重排列表1",
+      title: "重排列表1-长按",
       builder: (context) => WordList(
-        builder: (context, data) => ReorderableList(data: data),
+        builder: (context, data) => ReorderableList(list: data ?? <WordPair>[]),
       ),
     );
   }
 }
 
-class ReorderableList extends StatefulWidget {
-  const ReorderableList({Key? key, required this.data}) : super(key: key);
+class ReorderableList extends StatelessWidget {
+  const ReorderableList({Key? key, required this.list}) : super(key: key);
 
-  final List<WordPair>? data;
-
-  @override
-  _ReorderableListState createState() => _ReorderableListState();
-}
-
-class _ReorderableListState extends State<ReorderableList> {
-  late List<WordPair> list;
-
-  @override
-  void initState() {
-    list = widget.data?.toList() ?? [];
-    super.initState();
-  }
+  final List<WordPair> list;
 
   @override
   Widget build(BuildContext context) {
