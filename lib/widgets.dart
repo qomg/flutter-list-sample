@@ -67,10 +67,12 @@ class MyPage extends StatelessWidget {
     Key? key,
     required this.title,
     required this.builder,
+    this.floatingActionButtonBuilder,
   }) : super(key: key);
 
   final String title;
   final WidgetBuilder builder;
+  final WidgetBuilder? floatingActionButtonBuilder;
 
   goBack(BuildContext context) {
     final navi = Navigator.of(context);
@@ -93,6 +95,7 @@ class MyPage extends StatelessWidget {
         title: Text(title),
       ),
       body: SafeArea(child: Builder(builder: builder)),
+      floatingActionButton: floatingActionButtonBuilder?.call(context),
     );
   }
 }

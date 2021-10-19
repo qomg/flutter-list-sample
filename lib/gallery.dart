@@ -17,6 +17,7 @@ import 'demo_header_list4.dart' as header_list4;
 import 'demo_reorder_list1.dart' as reorder_list1;
 import 'demo_reorder_list2.dart' as reorder_list2;
 import 'demo_staggered_grid_view.dart' as staggered_list;
+import 'demo_scrollable_positioned_list.dart' as positioned_list;
 
 class Gallery extends StatelessWidget {
   const Gallery({Key? key}) : super(key: key);
@@ -41,6 +42,7 @@ class Gallery extends StatelessWidget {
           crossAxisSpacing: 1,
           children: [
             buildButton("滚动列表1", context, const scroll_view1.DemoList()),
+            buildButton("滚动列表2", context, const positioned_list.DemoList()),
             buildButton("简单列表1", context, const list_view1.DemoList()),
             buildButton("简单列表2", context, const list_view2.DemoList()),
             buildButton("简单列表3", context, const list_view3.DemoList()),
