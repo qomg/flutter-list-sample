@@ -9,7 +9,7 @@ typedef WordListBuilder = Widget Function(
 );
 
 int getItemCount(List<WordPair>? data) {
-  return data == null ? 0 : (data.length * 2 - 1);
+  return data == null || data.isEmpty ? 0 : (data.length * 2 - 1);
 }
 
 int getItemCount0(List<WordPair>? data) {
@@ -18,13 +18,13 @@ int getItemCount0(List<WordPair>? data) {
 
 Widget getListItem(List<WordPair>? data, int index, [int style = 0]) {
   if (index.isOdd) {
-    return newDivider();
+    return const MyDivider();
   } else {
     final position = index ~/ 2;
     final item = data![position];
     return style == 0
-        ? newListItem(position, item.first, item.second)
-        : newListItem2(position, item.first, item.second);
+        ? Username(index: position, firstName: item.first, lastName: item.second)
+        : Username1(index: position, firstName: item.first, lastName: item.second);
   }
 }
 
@@ -36,15 +36,15 @@ class WordList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<WordPair>>(
-      future: _generateWords(),
+      future: generateWords(),
       builder: (context, snapshot) => builder(context, snapshot.data),
     );
   }
 }
 
-Future<List<WordPair>> _generateWords([int count = 50]) async {
+Future<List<WordPair>> generateWords({int delay = 10, int count = 50}) async {
   return Future.delayed(
-    const Duration(milliseconds: 10),
+    Duration(milliseconds: delay),
     () => generateWordPairs().take(count).toList(),
   );
 }

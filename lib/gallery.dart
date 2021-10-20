@@ -18,17 +18,10 @@ import 'demo_reorder_list1.dart' as reorder_list1;
 import 'demo_reorder_list2.dart' as reorder_list2;
 import 'demo_staggered_grid_view.dart' as staggered_list;
 import 'demo_scrollable_positioned_list.dart' as positioned_list;
+import 'demo_refresh_loadmore_list.dart' as loadable_list;
 
 class Gallery extends StatelessWidget {
   const Gallery({Key? key}) : super(key: key);
-
-  Widget buildButton(String text, BuildContext context, Widget child) {
-    return newButton(
-      text: text,
-      context: context,
-      builder: (context) => child,
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,23 +34,78 @@ class Gallery extends StatelessWidget {
           mainAxisSpacing: 1,
           crossAxisSpacing: 1,
           children: [
-            buildButton("滚动列表1", context, const scroll_view1.DemoList()),
-            buildButton("滚动列表2", context, const positioned_list.DemoList()),
-            buildButton("简单列表1", context, const list_view1.DemoList()),
-            buildButton("简单列表2", context, const list_view2.DemoList()),
-            buildButton("简单列表3", context, const list_view3.DemoList()),
-            buildButton("简单列表4", context, const list_view4.DemoList()),
-            buildButton("简单列表5", context, const sliver_view1.DemoList()),
-            buildButton("Sliver固定高1", context, const sliver_view2.DemoList()),
-            buildButton("Sliver固定高2", context, const sliver_view3.DemoList()),
-            buildButton("多列表", context, const multi_list.DemoList()),
-            buildButton("带头部", context, const header_list1.DemoList()),
-            buildButton("固定头部", context, const header_list2.DemoList()),
-            buildButton("Overlap列表", context, const header_list3.DemoList()),
-            buildButton("滚动监听", context, const header_list4.DemoList()),
-            buildButton("重排列表1", context, const reorder_list1.DemoList()),
-            buildButton("重排列表2", context, const reorder_list2.DemoList()),
-            buildButton("瀑布流", context, const staggered_list.DemoList()),
+            DemoButton(
+              text: "滚动列表1",
+              builder: (context) => const scroll_view1.DemoList(),
+            ),
+            DemoButton(
+              text: "滚动列表2",
+              builder: (context) => const positioned_list.DemoList(),
+            ),
+            DemoButton(
+              text: "简单列表1",
+              builder: (context) => const list_view1.DemoList(),
+            ),
+            DemoButton(
+              text: "简单列表2",
+              builder: (context) => const list_view2.DemoList(),
+            ),
+            DemoButton(
+              text: "简单列表3",
+              builder: (context) => const list_view3.DemoList(),
+            ),
+            DemoButton(
+              text: "简单列表4",
+              builder: (context) => const list_view4.DemoList(),
+            ),
+            DemoButton(
+              text: "简单列表5",
+              builder: (context) => const sliver_view1.DemoList(),
+            ),
+            DemoButton(
+              text: "Sliver固定高1",
+              builder: (context) => const sliver_view2.DemoList(),
+            ),
+            DemoButton(
+              text: "Sliver固定高2",
+              builder: (context) => const sliver_view3.DemoList(),
+            ),
+            DemoButton(
+              text: "多列表",
+              builder: (context) => const multi_list.DemoList(),
+            ),
+            DemoButton(
+              text: "带头部",
+              builder: (context) => const header_list1.DemoList(),
+            ),
+            DemoButton(
+              text: "固定头部",
+              builder: (context) => const header_list2.DemoList(),
+            ),
+            DemoButton(
+              text: "Overlap列表",
+              builder: (context) => const header_list3.DemoList(),
+            ),
+            DemoButton(
+              text: "滚动监听",
+              builder: (context) => const header_list4.DemoList(),
+            ),
+            DemoButton(
+              text: "重排列表1",
+              builder: (context) => const reorder_list1.DemoList(),
+            ),
+            DemoButton(
+              text: "重排列表2",
+              builder: (context) => const reorder_list2.DemoList(),
+            ),
+            DemoButton(
+              text: "瀑布流",
+              builder: (context) => const staggered_list.DemoList(),
+            ),
+            DemoButton(
+              text: "数据加载列表",
+              builder: (context) => const loadable_list.DemoList(),
+            ),
           ],
         ),
       ),

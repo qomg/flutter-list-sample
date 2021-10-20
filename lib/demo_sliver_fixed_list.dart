@@ -15,10 +15,14 @@ class DemoList extends StatelessWidget {
           slivers: [
             // FIXME 第一行高度有问题
             SliverFixedExtentList(
-              itemExtent: 100,
+              itemExtent: 60,
               delegate: SliverChildBuilderDelegate(
-                (context, index) => getListItem(data, index),
-                childCount: getItemCount(data),
+                (context, index) => Username2(
+                  index: index,
+                  firstName: data![index].first,
+                  lastName: data[index].second,
+                ),
+                childCount: getItemCount0(data),
               ),
             ),
           ],

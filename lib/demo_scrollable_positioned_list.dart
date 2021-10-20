@@ -11,10 +11,10 @@ class DemoList extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = ItemScrollController();
     final listener = ItemPositionsListener.create();
-    listener.itemPositions.addListener(() {
-      final positions = listener.itemPositions.value.map((e) => e.index).join(",");
-      debugPrint("OnItemPositionsListener: $positions");
-    });
+    // listener.itemPositions.addListener(() {
+    //   final positions = listener.itemPositions.value.map((e) => e.index).join(",");
+    //   debugPrint("OnItemPositionsListener: $positions");
+    // });
     return MyPage(
       title: "滚动到指定索引",
       floatingActionButtonBuilder: (context) => FloatingActionButton.small(

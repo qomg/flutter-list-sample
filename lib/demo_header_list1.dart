@@ -7,7 +7,7 @@ class NameHeaderDelegate extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return newHeaderItem();
+    return const ItemHeader();
   }
 
   @override

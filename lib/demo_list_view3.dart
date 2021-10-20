@@ -14,7 +14,7 @@ class DemoList extends StatelessWidget {
         builder: (context, data) => ListView.separated(
           itemBuilder: (context, index) => getListItem(data, index),
           itemCount: getItemCount(data),
-          separatorBuilder: (context, index) => newDivider(),
+          separatorBuilder: (context, index) => const MyDivider(),
         ),
       ),
     );

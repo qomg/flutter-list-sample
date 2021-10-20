@@ -15,7 +15,7 @@ class NameHeaderDelegate extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return newHeaderItem(title ?? "姓名");
+    return ItemHeader(text: title ?? "姓名");
   }
 
   @override
@@ -68,7 +68,8 @@ class _SliverHeaderState extends State<SliverHeader> {
       handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
       sliver: SliverPersistentHeader(
         pinned: true,
-        delegate: NameHeaderDelegate(tickerProvider: widget.tickerProvider, title: title),
+        delegate: NameHeaderDelegate(
+            tickerProvider: widget.tickerProvider, title: title),
       ),
     );
   }
@@ -96,18 +97,19 @@ class DemoListState extends State<DemoList>
   }
 
   Widget wrapNotification(Widget child) {
-    return NotificationListener(
+    return NotificationListener<ScrollNotification>(
         onNotification: (notification) {
           if (notification is ScrollEndNotification) {
             onScrollEnd();
           }
-          return false;
+          return true;
         },
         child: child);
   }
 
   Widget newScrollView(List<WordPair>? data) {
     return NestedScrollView(
+      physics: const ClampingScrollPhysics(),
       headerSliverBuilder: buildHeaders,
       body: CustomScrollView(
         controller: _controller,
@@ -120,11 +122,8 @@ class DemoListState extends State<DemoList>
           ),
           // SliverPadding 包裹添加间距
           SliverList(
-          // SliverFixedExtentList(
-          //   itemExtent: 60,
             delegate: SliverChildBuilderDelegate(
               (context, index) => getListItem(data, index),
-              // (context, index) => getListItem(data, index, 1),
               childCount: getItemCount(data),
             ),
           ),
@@ -134,9 +133,9 @@ class DemoListState extends State<DemoList>
   }
 
   onScrollEnd() {
-    // FIXME
-    final pixels = _controller.position.pixels - 48;
-    final index = pixels ~/ 60;
+    // 列表项高度 72
+    // 如果列表项高度不统一，不适用
+    final index = _controller.position.pixels ~/ 72;
     final item = data?.elementAt(index);
     if (item != null) {
       sliverHeaderKey.currentState?.title = item.toString();
@@ -146,14 +145,14 @@ class DemoListState extends State<DemoList>
   @override
   void initState() {
     sliverHeaderKey = GlobalKey<_SliverHeaderState>();
-    _controller = ScrollController(initialScrollOffset: 48);
+    _controller = ScrollController();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return MyPage(
-      title: "Overlap列表",
+      title: "滚动监听",
       builder: (context) => WordList(
         builder: (context, data) {
           this.data = data;

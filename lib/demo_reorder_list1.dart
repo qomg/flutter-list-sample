@@ -35,7 +35,7 @@ class ReorderableList extends StatelessWidget {
       },
       itemCount: list.length,
       itemBuilder: (context, index) =>
-          newListItem(index, list[index].first, list[index].second),
+          Username(index: index, firstName: list[index].first, lastName: list[index].second),
     );
   }
 }

@@ -42,7 +42,7 @@ class ReorderableList extends StatelessWidget {
             index: index,
             child: Card(
               elevation: 0,
-              child: newListItem(index, list[index].first, list[index].second),
+              child: Username(index: index, firstName: list[index].first, lastName: list[index].second),
             ),
           ),
         ),

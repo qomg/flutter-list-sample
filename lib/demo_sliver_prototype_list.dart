@@ -14,10 +14,18 @@ class DemoList extends StatelessWidget {
         builder: (context, data) => CustomScrollView(
           slivers: [
             SliverPrototypeExtentList(
-              prototypeItem: newListItem(0, "PROTOTYPE", "ITEM"),
+              prototypeItem: const Username2(
+                index: 0,
+                firstName: "PROTOTYPE",
+                lastName: "ITEM",
+              ),
               delegate: SliverChildBuilderDelegate(
-                (context, index) => getListItem(data, index),
-                childCount: getItemCount(data),
+                (context, index) => Username2(
+                  index: index,
+                  firstName: data![index].first,
+                  lastName: data[index].second,
+                ),
+                childCount: getItemCount0(data),
               ),
             ),
           ],
