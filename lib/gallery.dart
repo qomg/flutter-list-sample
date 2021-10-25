@@ -19,6 +19,7 @@ import 'demo_reorder_list2.dart' as reorder_list2;
 import 'demo_staggered_grid_view.dart' as staggered_list;
 import 'demo_scrollable_positioned_list.dart' as positioned_list;
 import 'demo_refresh_loadmore_list.dart' as loadable_list;
+import 'demo_paging_list_view.dart' as paging_list;
 
 class Gallery extends StatelessWidget {
   const Gallery({Key? key}) : super(key: key);
@@ -105,6 +106,10 @@ class Gallery extends StatelessWidget {
             DemoButton(
               text: "数据加载列表",
               builder: (context) => const loadable_list.DemoList(),
+            ),
+            DemoButton(
+              text: "分页列表",
+              builder: (context) => const paging_list.DemoList(),
             ),
           ],
         ),
